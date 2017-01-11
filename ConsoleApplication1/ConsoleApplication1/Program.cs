@@ -10,7 +10,8 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Git source control test application!");
+            Console.WriteLine("Git source control test application - test check in with Kesavan Credentials!");
+            Console.WriteLine("Git source control test application- test with Arun credentails!");
             Console.Read();
         }
     }
