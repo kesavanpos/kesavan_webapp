@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>nth-of-type demo</title>
+  <style>
+  .nth {
+    color: blue;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<div>
+  <span>John</span>,
+  <b>Kim</b>,
+  <span>Adam</span>,
+  <b>Rafael</b>,
+  <span>Oleg</span>
+</div>
+<div>
+  <b>Dave</b>,
+  <span>Ann</span>
+</div>
+<div>
+  <i><span>Maurice</span></i>,
+  <span>Richard</span>,
+  <span>Ralph</span>,
+  <span>Jason</span>
+</div>
+ 
+<script>
+$( "span:nth-of-type(2)" )
+  .append( "<span> is 2nd sibling span</span>" )
+  .addClass( "nth" );
+</script>
+ 
+</body>
+</html>

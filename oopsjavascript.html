@@ -1,0 +1,109 @@
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+	<script type="text/javascript">	
+	
+	$(document).ready(function(){
+		
+		$.getScript('https://use.typekit.net/pqv4jra.js', function() {
+    //script is loaded and executed put your dependent JS here
+			try{Typekit.load({ async: true }); alert("working");}catch(e){ alert(e)};
+	});
+		
+		
+	});
+	
+	
+	// Anonmynous function
+		(
+		function()
+		{
+			var person = { 
+				sayHi : function() 
+					{ 
+						alert("sayHI");
+					} 
+				}
+			person.sayHi();
+		})();
+	// Anonmynous function
+	
+	function Employee(first,second)
+	{
+		this.firstName = first;
+		this.secondName = second;		
+		return {
+			getFullName : function(){ return "MyFullname is :"  + first + second;},
+			setFullName : function(val) { alert(val);}
+		}
+	}
+	
+	Employee.prototype.isEmployee = true;
+	
+	var obj1 = new Employee("Ram","Raj");	
+	alert(obj1.firstempname);
+	alert(obj1.getFullName());
+	alert(obj1.setFullName());
+	//obj1.isEmployee = true;
+	
+	var obj2 = new Employee("krishna","ram");
+	alert(obj1.getFullName());
+	alert(obj2.getFullName());
+	
+	
+	function Person() {
+    this.sayHI = function() { return "person"};
+};
+//This will create Student Class
+function Student() {};
+Student.prototype = new Person();
+Student.prototype.sayHI = function(l) {
+        return "Hi! I am a Student";
+    }
+    //This will create Teacher Object
+function Teacher() {};
+Teacher.prototype = new Person();
+Teacher.prototype.sayHI = function() {
+    return "Hi! I am a Teacher";
+}
+var sObj = new Student();
+alert(sObj.sayHI());
+//This will check if the student
+//object is instance of Person or not
+//if not it won't execute our alert code.
+if (sObj instanceof Person) {
+    alert("Hurry! JavaScript supports OOps");
+}
+	
+	
+	
+	// Encapsulation in javascript	
+	function Person(val) {
+    //this is private variable
+    var dob = val;
+	this.dobDate = dob;
+    //public properties and functions
+			return {
+				age: "23",
+				name: "aravind",
+				getDob: function() {
+					return dob;
+				}
+			}
+		}
+		
+	var pobj = new Person("8 June 2012");
+	//this will get undefined
+	//because it is private to Person
+	console.log(pobj.dob);
+	//Will get dob value we using public
+	//funtion to get private data
+	console.log(pobj.getDob());	
+	</script>
+</head>
+
+<body>
+
+</body>
+</html>

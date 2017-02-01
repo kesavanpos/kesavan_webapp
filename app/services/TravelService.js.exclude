@@ -1,0 +1,24 @@
+﻿
+var routerApp = angular.module('routerApp', ['ui.router']);
+
+routerApp.factory("TravelService", function ($q, $http) {
+    return {
+        getMessage: function () {
+            $http({
+                url: "http://cricapi.com/api/matches/",
+                method: "GET",
+                params: { apikey: "1sutCFxIFaQknlNZLedvC2LdumG3" },
+                success : function(data)
+                {
+                    debugger;
+                    alert("success" + data);
+                },
+                error: function(data)
+                {
+                    debugger;
+                    alert("error" + data);
+                }
+            });
+        }
+    }
+})
