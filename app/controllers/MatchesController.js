@@ -1,20 +1,11 @@
 ﻿routerApp.controller('MatchesController', function ($scope, matches) {
     debugger;
+    var log = [];
 
-    $scope.message = 'test';
-    $scope.scotches = [
-        {
-            name: 'Macallan 12',
-            price: 50
-        },
-        {
-            name: 'Chivas Regal Royal Salute',
-            price: 10000
-        },
-        {
-            name: 'Glenfiddich 1937',
-            price: 20000
-        }
-    ];
-
+    for (var match = 0; match < matches.matches.length ; match++)
+    {
+        matches.matches[match].teamone = (matches.matches[match])["team-1"];
+        matches.matches[match].teamtwo = (matches.matches[match])["team-2"];
+    }
+    $scope.matches = matches.matches;
 });

@@ -1,17 +1,18 @@
-<h2>Fine Scotches</h2>
+<h2>Available Matches</h2>
 
 <table class="table table-hover table-striped table-bordered">
     <thead>
         <tr>
-            <td>Name</td>
-            <td>Cost</td>
+            <td>Team</td>
+            <td>TeamAganist</td>
         </tr>
     </thead>
     <tbody>
     
-        <tr ng-repeat="scotch in scotches">
-            <td>{{ scotch.name }}</td>
-            <td>${{ scotch.price }}</td>
+        <tr ng-repeat="match in matches">
+            <td style="display:none">{{match.unique_id}}</td>
+            <td>{{ match.teamone }}</td>
+            <td>{{ match.teamtwo }}</td>
         </tr>
         
     </tbody>

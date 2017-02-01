@@ -35,7 +35,7 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
                 'columnOne@about': { template: 'Look I am a column!' },
                 'columnTwo@about': { 
                     templateUrl: 'app/views/table-data.html',
-                    controller: 'scotchController'
+                    controller: 'MatchesController'
                 }
             },
             resolve: {

@@ -8,6 +8,7 @@ routerApp.factory("cricService", function ($q, $http) {
             $http.get('http://cricapi.com/api/matches/', { params: { "apikey": "1sutCFxIFaQknlNZLedvC2LdumG3" } })
             .success(function (data) {
                 debugger;
+                alert(data.matches[0].team-1);
                 def.resolve(data);
             })
             .error(function (data, status) {
