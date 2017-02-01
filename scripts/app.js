@@ -15,7 +15,7 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
         // nested list with custom controller
         .state('home.list', {
             url: '/list',
-            templateUrl: 'app/views/partial-home-list.html',
+            templateUrl: '/app/views/partial-home-list.html',
             controller: function($scope) {
                 $scope.dogs = ['Bernese', 'Husky', 'Goldendoodle'];
             }
@@ -31,17 +31,17 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
         .state('about', {
             url: '/about',
             views: {
-                '': { templateUrl: 'partial-about.html' },
+                '': { templateUrl: 'app/views/partial-about.html' },
                 'columnOne@about': { template: 'Look I am a column!' },
                 'columnTwo@about': { 
-                    templateUrl: 'table-data.html',
+                    templateUrl: 'app/views/table-data.html',
                     controller: 'scotchController'
                 }
             },
             resolve: {
-                name: function (testService) {
-                    debugger;
-                    //debugger; return testService.getMessage();
+                name: function (cricService) {
+                    debugger;                    
+                    return cricService.getMessage();
                 }
             }
         });
@@ -49,7 +49,8 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
 });
 
 routerApp.controller('scotchController', function ($scope, name) {
-    
+    debugger;
+
     $scope.message = 'test';    
     $scope.scotches = [
         {
@@ -68,40 +69,3 @@ routerApp.controller('scotchController', function ($scope, name) {
     
 });
 
-routerApp.factory("testService", function ($q,$http) {
-    return {
-        getMessage: function () {
-            $http({
-                url: "http://cricapi.com/api/matches/",
-                method: "GET",
-                params: { apikey: "1sutCFxIFaQknlNZLedvC2LdumG3" },
-                success: function (data) {
-                    debugger;
-                    alert("success" + data);
-                },
-                error: function (data) {
-                    debugger;
-                    alert("error" + data);
-                }
-            });
-
-            return $q.when("Hello World");
-        }
-    }
-})
-
-routerApp.factory("slowService", function ($q) {
-    return {
-        getSlowService : function()
-        {
-            var def = $q.defer();
-            timeout(
-                function() {
-                    def.resolve('Allo');
-                },
-                2000
-            )
-            return def.promise;
-        }
-    }
-})
