@@ -39,33 +39,11 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
                 }
             },
             resolve: {
-                name: function (cricService) {
+                matches: function (cricService) {
                     debugger;                    
                     return cricService.getMessage();
                 }
             }
         });
-        
-});
-
-routerApp.controller('scotchController', function ($scope, name) {
-    debugger;
-
-    $scope.message = 'test';    
-    $scope.scotches = [
-        {
-            name: 'Macallan 12',
-            price: 50
-        },
-        {
-            name: 'Chivas Regal Royal Salute',
-            price: 10000
-        },
-        {
-            name: 'Glenfiddich 1937',
-            price: 20000
-        }
-    ];
-    
 });
 
